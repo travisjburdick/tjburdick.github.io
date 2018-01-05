@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Dragonforce</title>
+<link rel="stylesheet" media="screen and (min-width: 800px) and (max-width:1280px)" href="styles2.css" />
+<link rel="stylesheet" media="screen and (min-device-width: 1281px)" href="styles.css" />
+<script src="jquery-1.10.2.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+            $(".ui-tabs-panel").hide();
+            $(".ul-buttom a").click(function () {
+				
+              var divname= $(this).attr("href");
+              $(divname).show().siblings().hide();
+			  preventDefault();
+			  return false;
+    });
+});
+
+$(document).ready(function(){
+
+   $(".show-more").click(function () {
+        if($(".text").hasClass("show-more-height")) {
+            $(this).text("(Show Less)");
+        } else {
+            $(this).text("(Show More)");
+        }
+
+        $(".text").toggleClass("show-more-height");
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="pageContainer">
+	<div class="headerBox">
+    	<div class="headerImage">
+   		</div>
+        <div class="menuBar">
+       	  <ul id="mainMenu">
+             <li><a href="index.html">Home</a></li>
+            <li><a href="tourdates.html">Tour Dates</a></li>
+            <li><a href="biography.html">Biography</a></li>
+            <li class="active"><a href="discography.html">Discography</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="http://www.backstreet-merch.com/stores/dragonforce/">Store</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="body">
+    	
+    	<div class="otherContent"> 
+        <H1> Discography </H1>
+         <div class="newsBox">
+         	<div class="discoBar">
+            	<div class="discoBox">
+                	<div class="discoImg"><img src="img/The_Power_Within.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">The Power Within</div>
+                </div>
+                <div class="discoBox">
+                	<div class="discoImg"><img src="img/Twilight_Dementia.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">Twilight Dementia</div>
+                </div>
+                <div class="discoBox">
+                	<div class="discoImg"><img src="img/Ultra_Beatdown.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">Ultra Beatdown</div>
+                </div>
+                <div class="discoBox">
+                	<div class="discoImg"><img src="img/Inhuman_Rampage.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">Inhuman Rampage</div>
+                </div>
+            </div>
+            <div class="discoBar">
+            	<div class="discoBox">
+                	<div class="discoImg"><img src="img/Sonic_Firestorm.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">Sonic Firestorm</div>
+                </div>
+                <div class="discoBox">
+                	<div class="discoImg"><img src="img/Valley_of_the_Damned.jpg" width="100%" height="100%" /></div>
+                    <div class="discoTitle">Valley of the Damned</div>
+                </div>
+                
+            </div>
+         
+        </div>
+        </div>
+        <div class="rightCont">
+        	<h1> Social Media </h1> 
+            <div class="stuffBox">
+            <div class="stuffBar">
+    			<ul id="socialMediaMenu">
+    				<li class="ul-buttom"><a href="#fragment-1">Facebook</a></li>
+    				<li class="ul-buttom "><a href="#fragment-2">Twitter</a></li>
+    				<li class="ul-buttom "><a href="#fragment-3">Instagram</a></li>
+    			</ul> 
+            	</div>      
+ 	<div class="THISISABOXSON" style="margin-top:5px;">
+    <div id="tabs">
+    	<iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fdragonforce&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:98%; height:590px;" allowTransparency="true"></iframe>
+    </div>
+    <div id="fragment-1" class="ui-tabs-panel"> 
+    <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fdragonforce&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:98%; height:590px;" allowTransparency="true"></iframe>
+    </div>  
+    <div id="fragment-2" class="ui-tabs-panel"><a class="twitter-timeline" href="https://twitter.com/DragonForceHQ/favorites" data-widget-id="402565595402481664">Favorite Tweets by @DragonForceHQ</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+</div>
+    <div id="fragment-3" class="ui-tabs-panel"><!-- SnapWidget -->
+<iframe src="http://snapwidget.com/in/?u=ZHJhZ29uZm9yY2VocXxpbnwxMjV8MnwzfHx5ZXN8NXxmYWRlSW58b25TdGFydHx5ZXM=&v=181113" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:99%; height:590px"></iframe></div>
+    </div>
+ 
+             </div>
+            
+        <div class="stuffBox">
+            <div class="stuffBar">
+    			Subscribe
+           	  </div>      
+ 			<form>
+            <label style="color:white"> Your E-Mail: </label>
+            <input id="email" type="text" name="field1" value="..."> </ br>
+            <input id="go" type="submit" value="Submit"> <br />
+            </form>
+        	</div>    
+        </div>
+        <div class="push"></div>
+
+         
+    </div>
+    <div class="push"></div>
+
+    
+    <div class="footer">
+    	<div class="footerCopyright"> <p> Developed By: <a href="http://www.travisjburdick.com/">Travis Burdick</a>.  Reference Page: <a href="workcited.html">Work Cited</a></p>
+    </div>
+        <div class="footerSocialMedia">
+    <a href="https://www.facebook.com/dragonforce" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('fbbutton','','img/facebook_logo_rollover.png',1)"><img src="img/facebook_logo.png" alt="Dragonforce Facebook" width="1000" height="329" id="fbbutton" /></a> 
+    <a href="https://twitter.com/DragonForceHQ" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('dftwitter','','img/twitter-logo-rollover.png',1)"><img src="img/twitter-logo.png" alt="Dragonforce Twitter" width="1024" height="385" id="dftwitter" /></a> 
+    <a href="http://www.youtube.com/user/dragonforceofficial?feature=watch" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('dfyoutube','','img/Youtube-Logo-Black-White-rollover.png',1)"><img src="img/Youtube-Logo-Black-White.jpg" width="1158" height="509" id="dfyoutube" /></a> 
+    </div>
+    </div>
+   
+</div>
+</body>
+</html>
