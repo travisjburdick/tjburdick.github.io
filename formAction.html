@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>About</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+
+
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+
+var fName = getUrlVars()["firstname"];
+var lName = getUrlVars()["lastname"];
+var aStreet = getUrlVars()["street"];
+var aCity = getUrlVars()["city"];
+var aZip = getUrlVars()["zip"];
+var aState = getUrlVars()["state"];
+var aPhone = getUrlVars()["phone"];
+var aDate = getUrlVars()["date"];
+var aMessage = getUrlVars()["message"];
+var aEmail = getUrlVars()["email"];
+aEmail = aEmail.replace('%40', '@');
+aDate = aDate.replace(/\%2F/g, '/');
+aStreet = aStreet.replace(/\+/g,' ');
+aMessage = aMessage.replace(/\+/g,' ');
+aPhone = aPhone.replace(/\%28/g, '');
+aPhone = aPhone.replace(/\%29/g, '');
+aPhone = aPhone.replace(/\%2/g, '');
+
+
+jQuery(function($){
+   $("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+   $("#phone").mask("(999)-999-9999");
+});
+	function phonenumber(inputtxt)  
+	{  
+	  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+	  if(inputtxt.value.match(phoneno))  
+	  {  
+		  return true;  
+	  }  
+	  else  
+	  {  
+		 alert("Not a valid Phone Number");  
+		 return false;  
+	  }  
+	}  
+	
+	function validateEmail()
+    {
+         var emailID = document.myForm.email.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+	}
+	function validate()
+    {
+      
+         if( document.myForm.firstname.value == "" )
+         {
+            alert( "Please provide your FIRST name!" );
+            document.myForm.firstname.focus() ;
+            return false;
+         }
+		 if( document.myForm.lastname.value == "" )
+         {
+            alert( "Please provide your LAST name!" );
+            document.myForm.lastname.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.email.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.email.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.zip.value == "" ||
+         isNaN( document.myForm.zip.value ) ||
+         document.myForm.zip.value.length != 5 )
+         {
+            alert( "Please provide a zip in the format #####." );
+            document.myForm.zip.focus() ;
+            return false;
+         }
+         if( document.myForm.date.value == "" )
+         {
+            alert( "Please enter a valid date!" );
+            document.myForm.date.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.street.value == "" )
+         {
+            alert( "Please provide your address!" );
+            document.myForm.street.focus() ;
+            return false;
+         }
+		 if( document.myForm.street.value == "" )
+         {
+            alert( "Please provide your address!" );
+            document.myForm.street.focus() ;
+            return false;
+         }
+		 if( document.myForm.city.value == "" )
+         {
+            alert( "Please provide your city!" );
+            document.myForm.city.focus() ;
+            return false;
+         }
+		 if( document.myForm.state.value == "" )
+         {
+            alert( "Please provide your state!" );
+            document.myForm.state.focus() ;
+            return false;
+         }
+		 if(validateEmail() == false)
+		 {
+			alert("Please enter correct email ID")
+            document.myForm.email.focus() ;
+            return false;
+		 }
+		 if( phonenumber(document.myForm.phone) == false)
+		 {
+			
+			 document.myForm.phone.focus() ;
+            return false;
+		 
+		 }
+		 if(document.myForm.veri.value != "Barrack")
+         {
+            alert( "Sorry, please try again!" );
+            document.myForm.veri.focus() ;
+            return false;
+         }
+		
+		 
+		 
+		 
+         return( true );
+		 
+	}
+</script>
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+  <div class="infoBox">
+	<h1> Is the information correct? </h1>
+    <form name="myForm" action="mailto:tjburdick2007@gmail.com" onsubmit="return(validate());" method="GET">
+		<form name="myForm" action="#" onsubmit="return(validate());" method="GET">
+		<label for="firstnameInput"> First Name: </label>
+		<input type="text" name="firstname" id="firstnameInput" required>
+		<label for="lastnameInput">Last Name: </label>
+		<input type="text" name="lastname" id="lastnameInput" required>
+		<label for="streetInput"><br>Address: </label>
+		<input type="text" name="street" id="streetInput">
+		<label for="cityInput"><br>City: </label>
+		<input type="text" name="city" id="cityInput">
+		<label for="zipInput"><br>Zip: </label>
+		<input type="text" name="zip" id="zipInput">
+		<label for="stateInput"><br>State: </label>
+		<input type="text" name="state" id="stateInput">
+		<label for="phone"><br>Phone </label>
+		<input type="text" id="phone" placeholder="(XXX)-XXX-XXXX" value=5182488956/>
+		<label for="emailInput"><br>E-Mail </label>
+		<input type="text" name="email" id="emailInput">
+		<label for="dateInput"><br>Birth Date: </label>
+		<input type="text" name="date" id="dateInput" placeholder="MM/DD/YYYY">
+		<label for="messageInput"><br>Message: <br> </label>
+		<textarea name="message" id="messageInput" rows="10" cols="50" placeholder="Comments, questions, concerns?" > </textarea> <br>
+		<input type="submit" value="It's correct, send it!" ><br>
+		</form>
+	
+	
+
+	
+		<script>
+			document.getElementById('firstnameInput').value = fName;
+			document.getElementById('lastnameInput').value = lName;
+			document.getElementById('streetInput').value = aStreet;
+			document.getElementById('cityInput').value = aCity;
+			document.getElementById('zipInput').value = aZip;
+			document.getElementById('stateInput').value = aState;
+			document.getElementById('phone').value = aPhone;
+			document.getElementById('emailInput').value = aEmail;
+			document.getElementById('dateInput').value = aDate;
+			document.getElementById('messageInput').value = aMessage;			
+		</script>
+  </div>
+ </div>
+ 
+
+
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+</body>
+</html>

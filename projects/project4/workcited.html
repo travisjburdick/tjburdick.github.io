@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Dragonforce</title>
+<link rel="stylesheet" media="screen and (min-width: 800px) and (max-width:1280px)" href="styles2.css" />
+<link rel="stylesheet" media="screen and (min-device-width: 1281px)" href="styles.css" />
+<script src="jquery-1.10.2.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+            $(".ui-tabs-panel").hide();
+            $(".ul-buttom a").click(function () {
+				
+              var divname= $(this).attr("href");
+              $(divname).show().siblings().hide();
+			  preventDefault();
+			  return false;
+    });
+});
+
+$(document).ready(function(){
+
+   $(".show-more").click(function () {
+        if($(".text").hasClass("show-more-height")) {
+            $(this).text("(Show Less)");
+        } else {
+            $(this).text("(Show More)");
+        }
+
+        $(".text").toggleClass("show-more-height");
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="pageContainer">
+	<div class="headerBox">
+    	<div class="headerImage">
+   		</div>
+        <div class="menuBar">
+       	  <ul id="mainMenu">
+             <li><a href="index.html">Home</a></li>
+            <li><a href="tourdates.html">Tour Dates</a></li>
+            <li><a href="biography.html">Biography</a></li>
+            <li class="active"><a href="discography.html">Discography</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="http://www.backstreet-merch.com/stores/dragonforce/">Store</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="body">
+    	
+    	<div class="otherContent"> 
+        <H1> Work Cited </H1>
+         <p> Images </p>
+         <ul style="list-style:none; text-align:left;">
+         <li> <a href="http://www.guitarmessenger.com/wp-content/uploads/2006/08/Herman-Li-by-Ivan-Chopik.jpg">Band Image 1</a></li>
+         <li> <a href="http://www.metallus.it/wp-content/uploads/2012/03/marcellafava_marchudson_dragoonforce_2.jpg">Band Image 2 </a></li>
+         <li><a href="http://www.keepstillkeepquiet.com/wp-content/uploads/2009/10/DF18.jpg"> Band Image 3 </a></li>
+         <li> <a href="http://userserve-ak.last.fm/serve/_/10598813/Vadim+Pruzhanov+Vadim_Pruzhanov12862.jpg">Band Image 4</a></li>
+         <li><a href="http://1.bp.blogspot.com/_4zz5eTE54Tc/Svvc4oKlV7I/AAAAAAAAAWE/AVZYWysENGY/s320/dave+machintosh.jpg">Band Image 5</a></li>
+         <li><a href="http://www.dragonforce.com/images/The_Power_Within.jpg">Album Cover 1</a></li>
+         <li><a href="http://www.dragonforce.com/images/Twilight_Dementia.jpg">Album Cover 2</a> </li>
+         <li><a href="http://www.dragonforce.com/images/Ultra_Beatdown.jpg">Album Cover 3</a> </li>
+         <li><a href="http://www.dragonforce.com/images/Inhuman_Rampage.jpg">Album Cover 4</a> </li>
+         <li><a href="http://www.dragonforce.com/images/Sonic_Firestorm.jpg">Album Cover 5</a> </li>
+         <li> <a href="http://www.dragonforce.com/images/Valley_of_the_Damned.jpg">Album Cover 6</a> </li>
+         <li><a href="http://www.wallpaperspictures.net/image/lava-and-ash-clouds-wallpaper-for-2560x1440-hdtv-2387-27.jpg">Original BG Image</a> </li>
+         <li><a href="http://www.webplatform.org/stewards/facebook/facebook_logo.png">Facebook Logo</a></li>
+         <li><a href="http://ictville.com/wp-content/uploads/2013/02/twitter-logo.png">Twitter Logo</a></li>
+         <li><a href="http://mgemw.com/wp-content/uploads/2013/10/Youtube-Logo-Black-White.jpg">Youtube Logo</a></li>
+         </ul>
+         <p> Videos </p>
+         <ul style="list-style:none; text-align:left;">
+         <li> <a href="https://www.youtube.com/embed/cU4GXgaCFTI?list=SP0B18CF735DFED21E">Official Dragonforce Youtube</a></li>
+         <li> <a href="https://www.youtube.com/embed/lRt54xjIq7w?list=SP0B18CF735DFED21E">Official Dragonforce Youtube</a></li>
+         <li><a href="https://www.youtube.com/embed/CM0JXnKVwPI?list=SP0B18CF735DFED21E"> Official Dragonforce Youtube </a></li>
+         </ul>
+         <p> Band Information </p>
+         <p> <a href="https://www.dragonforce.com">Dragonforce's Official Website</a> </div>
+       
+    </div>
+    <div class="push"></div>
+
+    
+    <div class="footer">
+    	<div class="footerCopyright"> <p> Developed By: <a href="http://www.travisjburdick.com/">Travis Burdick</a>.  Reference Page: <a href="workcited.html">Work Cited</a></p>
+    </div>
+        <div class="footerSocialMedia">
+    <a href="https://www.facebook.com/dragonforce" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('fbbutton','','img/facebook_logo_rollover.png',1)"><img src="img/facebook_logo.png" alt="Dragonforce Facebook" width="1000" height="329" id="fbbutton" /></a> 
+    <a href="https://twitter.com/DragonForceHQ" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('dftwitter','','img/twitter-logo-rollover.png',1)"><img src="img/twitter-logo.png" alt="Dragonforce Twitter" width="1024" height="385" id="dftwitter" /></a> 
+    <a href="http://www.youtube.com/user/dragonforceofficial?feature=watch" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('dfyoutube','','img/Youtube-Logo-Black-White-rollover.png',1)"><img src="img/Youtube-Logo-Black-White.jpg" width="1158" height="509" id="dfyoutube" /></a> 
+    </div>
+    </div>
+   
+</div>
+</body>
+</html>

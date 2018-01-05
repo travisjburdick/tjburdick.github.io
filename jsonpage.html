@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Home</title>
-
+<title>Project</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" media="screen and (max-device-width: 480px)" href="600mobile.css">
-<script type="text/javascript"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 
-<body onload="MM_preloadImages('img/tweeter-roll.png','img/facebook-roll.png','img/gmail-roll.png','img/rocketlogoroll.png')">
+<body>
 <div class="header">
 	<div class="menuBar">
     	<ul id="mainMenu">
@@ -27,11 +27,41 @@
     </div>
 </div>
 <div class="centerContent">
-	<div class="titleBar"> New Horizons Design. Simple, clean. </div>
-  	<div class="introBox"> Travis Burdick <br />Developer // Student</div>
-    <div class="logobox"> <!--<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image45','','img/rocketlogoroll.png',1)"><img src="img/rocketlogo.png" width="150" height="150" id="Image45" /></a>--></div>
-    
+  <div class="infoBox" style="text-align:center">
+<h1> Data read from JSON </h1>
+<div id="jsonbox" style="text-align:center">
 </div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "jsondata.txt";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += 'Character: ' + arr[i].name + '<br>Class: ' + arr[i].pclass + '<br>Talent Specialization: ' + arr[i].spec + '<br>Item Level: ' + arr[i].iLevel + '<br><br>';
+    }
+    document.getElementById("jsonbox").innerHTML = out;
+}
+</script>
+   
+   
+   
+   
+   
+
+  </div> 
+  </div>
 
 
 <div class="footer">
@@ -44,5 +74,6 @@
 	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
 	</div>
 </div>
+
 </body>
 </html>

@@ -1,0 +1,4 @@
+Assignment 8:
+
+Client Name: David Catchings
+Project: Currently, they sell clothes from www.lularoe.com by uploading videos to youtube to show them off. They would like to have a site build which consists of a blog area, a picture gallery to show clothes, and a comment section for those pictures.

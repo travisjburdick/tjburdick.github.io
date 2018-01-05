@@ -1,0 +1,38 @@
+[
+{
+"name": "Angoron",
+"pclass": "Death Knight",
+"spec": "Unholy",
+"iLevel": "840"
+},
+{
+"name": "Popeshow",
+"pclass": "Monk",
+"spec": "Mistweaver",
+"iLevel": "870"
+},
+{
+"name": "Sumjal",
+"pclass": "Monk",
+"spec": "Brewmaster",
+"iLevel": "842"
+},
+{
+"name": "Aisleynn",
+"pclass": "Priest",
+"spec": "Holy",
+"iLevel": "848"
+},
+{
+"name": "Iromgorm",
+"pclass": "Warrior",
+"spec": "Protection",
+"iLevel": "758"
+},
+{
+"name": "Gimia",
+"pclass": "Hunter",
+"spec": "Marksmen",
+"iLevel": "856"
+}
+]

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>About</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<style> 
+label{
+color:black;
+}
+input:enabled + label { 
+  margin: 20px auto;
+  background:rgb(255,255,0);
+}
+
+input:disabled + label{
+  opacity:0.5;
+  background:rgb(255,0,0);
+}
+input[type="checkbox"]:checked + label {
+  background:rgb(153,204,102);
+  font-weight:bold;
+}
+</style>
+<script type="text/javascript">
+
+var courses = [
+ ['ENC1102', ['ENC1101']],
+ ['SPC2608', ['ENC1101']],
+ ['MAC1105', ['MAT1033', 'ENC1101']],
+ ['ECO2013', ['ENC1101']],
+ ['ARH1000', ['ENC1101']],
+ ['HUM2020', ['ENC1101']],
+ ['LIT2000', ['ENC1101']],
+ ['MUL1010', ['ENC1101']],
+ ['THE1000', ['ENC1101']],
+ ['ACG2071', ['ACG2021']],
+ ['APA1111', ['QMB1001']],
+ ['APA1121', ['APA1111']], 
+ ['GEB2430', ['ENC1101']],
+]
+  
+function pr(item, index) {
+   var checked = true;
+   var elementId = item[1][0];
+   for (var i=0; i<item[1].length; i++){
+     elementId = item[1][i];  
+     if (!isChecked(elementId)) {
+       checked=false;
+     }
+   }  
+   if (checked) Enable(item[0]) 
+   else Disable(item[0]);
+}
+
+function CC()
+{
+  courses.forEach(pr);
+}
+
+function isChecked(item) {
+  return (document.getElementById(item).checked == true);
+}
+
+function Enable(selection){
+ document.getElementById(selection).disabled = false;
+}
+
+function Disable(selection){
+ document.getElementById(selection).disabled = true;
+}
+</script>
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+  <div class="infoBox">
+<h1>
+Accounting Technology Auto Advisor
+</h1>
+Simply select what courses you have already taken and the system will automatically enable other courses you can take. This shows only required course and takes into account pre-requisites.
+<br/>
+<p>Students should complete ENC1101 AND MAT1033 prior to admission to the program. </p><br/>
+
+<input type="checkbox" id="ENC1101" onclick="CC();" /> 
+<label for='ENC1101'>ENC1101 - Introduction to Composition</label><br/>
+<input type="checkbox" id="MAT1033" onclick="CC();" /> 
+<label for='MAT1033'>MAT1033 - Intermediate Algebra</label><br/>
+
+<input type="checkbox" id="ENC1102" onclick="CC();" disabled /> 
+<label for='ENC1102'>ENC1102 - Writing with Research</label><br/>
+<input type="checkbox" id="SPC2608" onclick="CC();" disabled />
+<label for='SPC2608'>SPC2608 - Oral Communications/Research/Presentation Skills</label><br/>
+<input type="checkbox" id="MAC1105" onclick="CC();" disabled /> 
+<label for='MAC1105'>MAC1105 - Survey in Mathematics</label><br/>
+
+<input type="checkbox" id="ECO2013" onclick="CC();" disabled> 
+<label for='ECO2013'>ECO2013 - Principles of Macro Economics</label><br/>
+
+<input type="checkbox" id="ARH1000" onclick="CC();" disabled>
+<label for='ARH1000'>ARH1000 - Art Appreciation</label><br/>
+
+<input type="checkbox" id="HUM2020" onclick="CC();" disabled>
+<label for='HUM2020'>HUM2020 - Introduction to Humanities</label><br/>
+
+<input type="checkbox" id="LIT2000" onclick="CC();" disabled>
+<label for='LIT2000'>LIT2000 - Literature and Culture</label><br/>
+
+<input type="checkbox" id="MUL1010" onclick="CC();" disabled> 
+<label for='MUL1010'>MUL1010 - Music Appreciation</label><br/>
+
+<input type="checkbox" id="PHI2010" onclick="CC();" > 
+<label for='PHI2010'>PHI2010 - Introduction of Philosophy</label><br/>
+
+<input type="checkbox" id="THE1000" onclick="CC();" disabled> 
+<label for='THE1000'>THE1000 - Theatre Appreciation </label><br/>
+
+<input type="checkbox" id="GEB2351" onclick="CC();" > 
+<label for='GEB2351'>GEB2351 - International Business</label><br/>
+
+<input type="checkbox" id="ACG2021" onclick="CC();" > 
+<label for='ACG2021'>ACG2021 - Principles of Financial Accounting</label><br/>
+
+<input type="checkbox" id="ACG2071" onclick="CC();" disabled> 
+<label for='ACG2071'>	ACG2071 - Principles of Managerial Accounting</label><br/>
+<input type="checkbox" id="QMB1001" onclick="CC();"> 
+<label for='QMB1001'> QMB1001 - Business Math</label><br/>
+<input type="checkbox" id="APA1111" onclick="CC();" disabled> 
+<label for='APA1111'>APA1111 - Office Accounting I</label><br/>
+
+<input type="checkbox" id="APA1121" onclick="CC();" disabled> 
+<label for='APA1121'> APA1121 -Office Accounting II</label><br/>
+
+<input type="checkbox" id="APA1711" onclick="CC();"> 
+<label for='APA1711'>APA1711 - Computer Spreadsheet</label><br/>
+<input type="checkbox" id="BUL2241" onclick="CC();"> 
+<label for='BUL2241'>BUL2241 - Business Law I </label><br/>
+<input type="checkbox" id="FIN1100" onclick="CC();"> 
+<label for='FIN1100'>FIN1100 - Personal Financial Planning </label><br/>
+<input type="checkbox" id="FIN2000" onclick="CC();"> 
+<label for='FIN2000'>FIN2000 - Principles of Finance </label><br/>
+<input type="checkbox" id="GEB1011" onclick="CC();"> 
+<label for='GEB1011'>GEB1011 - Introduction to Business</label><br/>
+<input type="checkbox" id="GEB2430" onclick="CC();" disabled> 
+<label for='GEB2430'>GEB2430 - Ethics and Social Responsibility</label><br/>
+<input type="checkbox" id="ISM2000" onclick="CC();"> 
+<label for='ISM2000'>ISM2000 - Business Information Processing</label><br/>
+<input type="checkbox" id="TAX2000" onclick="CC();"> 
+<label for='TAX2000'>TAX2000 - Personal Income Tax </label><br/>
+  </div>
+ </div>
+ 
+
+
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+</body>
+</html>

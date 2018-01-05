@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>About</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+      	
+        function initDraw()
+        {
+            var myCanvas = document.getElementById("canvas");
+            var ctx = myCanvas.getContext("2d");
+			convertToCartesian(ctx, myCanvas.width, myCanvas.height);
+            plotSpiroGraph(ctx, myCanvas.width, myCanvas.height);
+            setInterval(function(){plotSpiroGraph(ctx, myCanvas.width, myCanvas.height);}, 5000);
+        }
+
+        function convertToCartesian(ctx, wid, ht)
+        {
+            ctx.translate(wid/2, ht/2);
+            ctx.scale(1,-1);
+        }
+        function plotSpiroGraph(ctx, wid, ht)
+        {
+            
+            var R = getRandomNumber(0, 100);
+            var r = getRandomNumber(0, 50);
+            var alpha = getRandomNumber(35, r);
+            var l = alpha / r;
+            var k = r / R;
+			var O  = getRandomNumber(0,25);
+            
+            //clear the draw area
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(wid/-2, ht/-2, wid, ht);
+            
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba("+getRandomNumber(65, 210)+ 
+                            ", "+ getRandomNumber(65, 210) +
+                            ", "+getRandomNumber(65, 210)+", 1)";
+            
+            for(var theta=1; theta<=20000; theta += 1){
+                var t = ((Math.PI / 180) * theta);
+                var x = (R + r) * Math.cos(t) - ((r + O) * Math.cos(((R + r)/r)*t));
+                var y = (R+r)* Math.sin(t) - (r + O)* Math.sin(((R + r)/r)*t);
+
+                ctx.lineTo(x, y);                               
+            }            
+            ctx.stroke();
+            ctx.closePath();
+        }
+        function getRandomNumber(start, end)
+        {
+            return (Math.floor((Math.random() * (end-start))) + start);
+        }
+</script>
+
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+	<div class="infoBox" style="text-align:center;">	
+		<h1> Spirograph on a timer! Click once, and watch! <h1>
+		<canvas id="canvas" width="800" height="600" 
+              style="border-style:solid; border-width:1px; background-color:#ffffff; clear:both;">
+        </canvas>
+		<br />
+		<button type="button" onclick="initDraw()">Click Me!</button>
+	</div>
+</div>
+   <!-- <script>
+    	initDraw(); //start the draw timer
+    </script> -->	
+	
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+</body>
+
+</html>

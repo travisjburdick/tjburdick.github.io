@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Project</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<style>
+.drop {
+    float: left;
+    width: 400px;
+    height: 200px;
+    background-color: blue;
+	border-radius:25px;
+}
+.discard{
+	color:black;
+	font-size:24px;
+    float: left;
+    width: 400px;
+    height: 200px;
+    background-color: green;
+	border-radius:25px;
+    clear:both; 
+}
+</style>
+
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+  <div class="infoBox" id="infoBox" style="text-align:center">
+		<input type="button" value="Deal Card" id="deal" />
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id='drop' class='drop'>Play Here</div>
+<br/>
+<br/>
+<br/>
+<div id='discard' class='discard'>Discard Here</div>
+<script type="text/javascript">
+$ (init);
+
+
+function init() {
+  $('.drop').droppable( {
+    drop: handleDropEvent
+  } );   
+}
+
+$('#deal').click(function () {
+    dealCard();
+});
+
+var cardsInDeck = new Array();
+var numberOfCardsInDeck = 19;
+
+
+for(var j = 0; j < numberOfCardsInDeck; j++)
+{
+	var temp = j + 1;
+	cardsInDeck[j] = "B" + temp;
+	
+}
+
+function dealCard() {
+
+    if (numberOfCardsInDeck == 0) return false;
+    for(var i = 0; i < numberOfCardsInDeck; i++)
+    {
+      var img = document.createElement("img");
+      img.src = "img/cards/" + cardsInDeck[i] + ".jpg";
+      img.id =  cardsInDeck[i];
+	  img.setAttribute("style", "width:60px;height:90px;");
+	  document.getElementById("infoBox").appendChild(img);
+      $('#'+img.id).draggable();
+    }
+}
+
+
+
+function handleDropEvent( event, ui ) {
+  var draggable = ui.draggable;
+
+	$("#discard").droppable({
+				drop: function(event, ui) 
+				{	
+					 $('#discard').html( 'The card "' + draggable.attr('id') + '" was discarded!' );
+					$(ui.draggable).hide();
+				}
+			});
+
+}
+</script>
+</div>
+
+
+   
+   
+
+  </div> 
+
+
+
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+
+</body>
+</html>

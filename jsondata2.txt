@@ -1,0 +1,9 @@
+[
+{
+"name": "Angoron",
+"pclass": "Death Knight",
+"spec": "Unholy",
+"iLevel": "840",
+"picture":"sumjalprofile.jpg"
+}
+]

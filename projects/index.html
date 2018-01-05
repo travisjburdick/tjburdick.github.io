@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<script>
+$(document).ready(function(){
+   var divs = $('div[data-filter]');
+	$('#search').on('keyup', function() {
+		var val = $.trim(this.value);
+		divs.hide();
+		divs.filter(function() {
+			return $(this).data('filter').search(val) >= 0
+		}).show();
+	});
+
+	divs.on('click', function() {
+		divs.not(this).hide();
+		var text = $.trim($(this).text());
+		$('#search').val(text);
+	})
+});
+
+</script>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "jsondata.json";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+
+    for(i = 0; i < arr.length; i++) {
+		out += ' <div id="imgBox" data-filter="' + arr[i].name + '"><a href="champs/aatroxT.html"><img src="imgs/championImgs/' + arr[i].name + '.png" alt="' + arr[i].name +'" data-toggle="tooltip" data-placement="top" title="' + arr[i].name + '"></a> </div>'
+    }
+    document.getElementById("championBox").innerHTML = out;
+}
+</script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+
+</head>
+<body>
+<div id="pageContainer"> 
+	<div id="menuBlock">
+	<ul class="mainMenu">
+	<ul>
+	</div>
+	<div id="titleBar">
+		<h1><a href="/index.html">ChampDB</a></h1>
+	</div>
+	<div id="searchBar">
+		<div id="searchBoxText"> Start typing your champion name:</div>
+		<label for="search">Search Input:</label>
+		<input type="search" name="filter" id="search" value="" />
+	</div>
+	<div id="content">
+		<div id="championBox">	
+		</div>
+		<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();   
+		});
+		</script>
+	</div>
+	<div id="footer">
+		
+	</div>
+</div>
+</body>
+
+</html>

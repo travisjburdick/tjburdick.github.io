@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>About</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<style>
+
+.ball {
+    position: absolute;
+    top: 200px;
+    left: 525px;
+    width: 100px;
+    height:100px;
+    background-color: transparent;
+    }
+.wall {
+    position: absolute;
+    top:150px;
+    left:100px;
+    width: 450px;
+    height:450px;
+    background-color: yellow;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+  <div class="infoBox">
+  
+<div id='bg'>
+<img id="bgImg" img src="http://eskipaper.com/images/soccer-field-1.jpg" width='700' height='400'/>
+</div>
+
+<div class='ball'>
+    <img id='ballimg' src="http://www.freeiconspng.com/uploads/soccer-ball-png-17.png" width='100' height='100' />
+</div>
+	   
+	   
+   
+  </div>
+ </div>
+<script type="text/javascript">
+var timerInterval = 100;
+var imgState = 0;
+var timer = window.setInterval(function() { ballTimer() }, 
+                              timerInterval);  
+
+$( "#go" ).click(function() {
+   window.clearInterval(timer);
+});
+$( "#bg" ).click(function() {
+	 if(imgState == 0)
+   {
+   		$('#ballimg').attr('src', 'http://pngimg.com/upload/basketball_PNG1095.png');
+      $('#bgImg').attr('src', 'http://previews.123rf.com/images/julydfg/julydfg1109/julydfg110900034/10549029-Wooden-basketball-court--Stock-Vector-floor.jpg');
+      imgState = 1;
+   }
+   else if(imgState == 1)
+   {
+   		$('#ballimg').attr('src', 'http://www.freeiconspng.com/uploads/soccer-ball-png-17.png');
+      $('#bgImg').attr('src', 'http://eskipaper.com/images/soccer-field-1.jpg');
+      imgState = 0;
+   }
+});
+
+function ballTimer()
+{
+  moveBall($('.ball'));   
+}
+
+function moveBall(obj)
+{
+    var left = obj.offset().left;
+    var top = obj.offset().top;
+   
+	obj.animate({left: '+=100', top: '+=100'}, 1000);
+  	obj.animate({left: '+=100', top: '-=100'}, 1000);
+	obj.animate({left: '+=100', top: '+=100'}, 1000);
+	obj.animate({left: '+=100', top: '-=100'}, 1000);
+	obj.animate({left: '+=100', top: '+=100'}, 1000);
+	obj.animate({left: '-=100', top: '-=100'}, 1000);
+	obj.animate({left: '-=100', top: '+=100'}, 1000);
+	obj.animate({left: '-=100', top: '-=100'}, 1000);
+	obj.animate({left: '-=100', top: '+=100'}, 1000);
+	obj.animate({left: '-=100', top: '-=100'}, 1000);
+}
+</script>
+
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+</body>
+</html>

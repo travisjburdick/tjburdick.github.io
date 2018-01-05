@@ -47,13 +47,12 @@ html, body{
 
 	min-height:600px;
 	width:50%;
-	/*background-image:url(img/transbg.png);*/
+	background-image:url(img/transbg.png);
 	border-radius:5px;
 	border:2px groove white;	
 	margin:0 auto;
 	margin-top:50px;
 	padding:50px;
-	
 }
 .infoBox p{
 	text-indent:15px;
@@ -182,13 +181,13 @@ html, body{
 }
 
 #mainMenu ul, li{
-	display:inline-block;
+
 	list-style-type:none;
 }
 
 #mainMenu li a{
 	text-decoration:none;
-	color:#FFF;
+	color:red;
 	padding-right:10px;
 	padding-left:10px;
 	font-size:30px;

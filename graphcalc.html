@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>About</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="menuBar">
+    	<ul id="mainMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+				<a href="#" class="dropbtn">CLASSES</a>
+				<div class="dropdown-content">
+				  <a href="webdesign.html">Web Design</a>
+				  <a href="websystems.html">Web Systems I</a>
+				</div>
+				</li>
+        <li> <a href="about.html">ABOUT</a></li>
+        <li> <a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centerContent">
+  <div class="infoBox">
+  
+		<p>Cubic Equation Calculator<br/><br>
+		<p>y = ax<sup>3</sup> + bx<sup>2</sup> + cx+ d<br/><br/>
+		 <label for="a">Input a </label> <input type="text" id="a" size="5" value="5"/><br/>
+		 <label for="b">Input b </label> <input type="text" id="b" size="5" value="-10" /><br/>
+		 <label for="c">Input c </label><input type="text" id="c" size="5" value="7"/><br/>
+		 <label for="d">Input d </label> <input type="text" id="d" size="5" value="9"/><br/>
+		 <label for="xmin"> X Min  </label><input type="text" id="xmin" value="-20" size="5"/>
+		<label for="xmax"> X Max </label><input type="text" id="xmax" value="20" size="5" />
+	<br/><br/>
+		
+	<input type="button" value="Calculate" id="calculate" />
+	<input type="button" value="Plot" id="plot" />
+
+	<br/><br/>
+	<p id="output"> </p>
+
+	<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto;"></div>
+	   
+	   
+   
+  </div>
+ </div>
+<script type="text/javascript">
+// Global variables
+var a = 0;
+var b = 0;
+var c = 0;
+var d = 0;
+var n = 0;
+var x = new Array();
+var y = new Array(); 
+var v = new Array();
+
+function calculateY(a, b, c, d, x) {
+    return a * x * x * x + b * x * x + c * x + d;
+}
+
+function calculate() {
+    a = Number($('#a').val());
+    b = Number($('#b').val());
+    c = Number($('#c').val());
+    d = Number($('#d').val());
+    var xmin = Number($('#xmin').val());
+    var xmax = Number($('#xmax').val());
+    var xt = 0;
+    
+    
+    var i = 0;
+    for (xt = xmin; xt <= xmax; xt++) {
+        x[i] = xt;
+        y[i] = calculateY(a, b, c, d, xt);
+        v[i] = [x[i], y[i]];
+        i++;
+    }
+    n = i - 1;
+    
+}
+
+function displayValues()
+{
+   var s = "";
+    
+    s = "Y = " + a + " x<sup>3</sup> + ";
+    s+= b + " x<sup>2</sup> + " + c + "x + " + d + "<br/><br/>";
+    
+    for (var i = 0; i <= n; i++)
+    {
+        s += " X = " + x[i] + " Y = " + y[i] + "<br/>";       
+    }
+    
+    output.innerHTML = s;
+}
+
+function plotValues()
+{
+   calculate();
+   chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: 'Cubic Equation',
+                x: -20 //center
+            },
+            xAxis: {
+                title: {
+                    text: 'X'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Y'
+                }   
+            }, 
+       
+       plotOptions: {
+                scatter: {
+                    marker: {
+                        radius: 5,
+                        states: {
+                            hover: {
+                                enabled: true,
+                                lineColor: 'rgb(100,100,100)'
+                            }
+                        }
+                    },
+                    states: {
+                        hover: {
+                            marker: {
+                                enabled: false
+                            }
+                        }
+                    }
+                }
+            },
+       
+       series: [{
+                name: 'Y Values',
+                color: 'rgba(223, 83, 83, .5)',
+                data: v
+       }]                
+   })      
+}
+
+$('#calculate').click( function() {
+     calculate();
+     displayValues();    
+});
+
+$('#plot').click( function() {
+     calculate();
+     plotValues();   
+});
+
+
+
+
+</script>
+
+<div class="footer">
+	<div class="copyrightbar"> 
+    <a href="">Travis Burdick 2013</a>
+    </div>
+	<div class="socialMediaBar">
+	<a href="https://www.twitter.com"> <img src="img/tweeter.png" onmouseover="this.src='img/tweeter-roll.png'" onmouseout="this.src='img/tweeter.png'" alt="Twitter" width="30" height="30" id="tweeter" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.facebook.com"> <img src="img/facebook.png" onmouseover="this.src='img/facebook-roll.png'" onmouseout="this.src='img/facebook.png'" alt="Facebook" width="30" height="30" id="facebook" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	<a href="https://www.gmail.com"> <img src="img/gmail.png" onmouseover="this.src='img/gmail-roll.png'" onmouseout="this.src='img/gmail.png'" alt="Gmail" width="30" height="30" id="gmail" onblur="this.src='img/tweeter-roll.png'" onfocus="this.src='img/tweeter-roll.png'"> </a>
+	</div>
+</div>
+</body>
+</html>
